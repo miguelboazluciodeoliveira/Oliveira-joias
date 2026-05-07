@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gold: #B8962E;
+    --gold-light: #D4AF5A;
+    --gold-pale: #F5EFD8;
+    --dark: #1A1410;
+    --cream: #FAF6EE;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: theme('colors.cream.100');
+    color: theme('colors.dark.600');
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.gold.200');
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.gold.400');
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  /* Inputs base style */
+  .input-base {
+    @apply w-full px-3 py-2 text-sm border border-gold-200 rounded-lg bg-white text-dark-600
+           placeholder:text-dark-300 outline-none transition-colors
+           focus:border-gold-500 focus:ring-1 focus:ring-gold-500/30
+           disabled:bg-cream-100 disabled:cursor-not-allowed;
+  }
+
+  .label-base {
+    @apply block text-xs font-medium text-dark-400 mb-1;
+  }
+
+  /* Table styles */
+  .table-wrapper {
+    @apply w-full overflow-x-auto;
+  }
+
+  .data-table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  .data-table thead th {
+    @apply text-left py-2.5 px-3 text-xs uppercase tracking-wide text-dark-300
+           font-medium border-b border-gold-100 bg-cream-100/50;
+  }
+
+  .data-table tbody tr {
+    @apply border-b border-gray-50 hover:bg-cream-100/60 transition-colors;
+  }
+
+  .data-table tbody tr:last-child {
+    @apply border-b-0;
+  }
+
+  .data-table tbody td {
+    @apply py-2.5 px-3 text-dark-600;
+  }
+}
+
+/* React Hot Toast override */
+.react-hot-toast {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 13px !important;
+}
